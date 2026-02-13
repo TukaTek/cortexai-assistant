@@ -38,6 +38,10 @@ RUN pnpm build
 ENV OPENCLAW_PREFER_PNPM=1
 RUN pnpm ui:install && pnpm ui:build
 
+# Remove the .git directory so openclaw update doesn't see a dirty working tree
+# (the patched extension package.json files show as uncommitted changes otherwise).
+RUN rm -rf .git
+
 
 # Runtime image
 FROM node:22-bookworm
