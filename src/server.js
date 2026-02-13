@@ -625,9 +625,24 @@ app.get("/setup/api/status", requireSetupAuth, async (_req, res) => {
     { value: "zai", label: "Z.AI (GLM 4.7)", hint: "API key", options: [
       { value: "zai-api-key", label: "Z.AI (GLM 4.7) API key" }
     ]},
-    { value: "minimax", label: "MiniMax", hint: "M2.1 (recommended)", options: [
-      { value: "minimax-api", label: "MiniMax M2.1" },
-      { value: "minimax-api-lightning", label: "MiniMax M2.1 Lightning" }
+    { value: "xai", label: "xAI", hint: "Grok API key", options: [
+      { value: "xai-api-key", label: "xAI (Grok) API key" }
+    ]},
+    { value: "minimax", label: "MiniMax", hint: "MiniMax 2.5 + Lightning", options: [
+      { value: "minimax-api", label: "MiniMax 2.5" },
+      { value: "minimax-api-lightning", label: "MiniMax 2.5 Lightning" }
+    ]},
+    { value: "venice", label: "Venice AI", hint: "API key", options: [
+      { value: "venice-api-key", label: "Venice AI API key" }
+    ]},
+    { value: "xiaomi", label: "Xiaomi", hint: "API key", options: [
+      { value: "xiaomi-api-key", label: "Xiaomi API key" }
+    ]},
+    { value: "cloudflare", label: "Cloudflare AI Gateway", hint: "API key", options: [
+      { value: "cloudflare-ai-gateway-api-key", label: "Cloudflare AI Gateway API key" }
+    ]},
+    { value: "qianfan", label: "Baidu QIANFAN", hint: "API key", options: [
+      { value: "qianfan-api-key", label: "QIANFAN API key" }
     ]},
     { value: "qwen", label: "Qwen", hint: "OAuth", options: [
       { value: "qwen-portal", label: "Qwen OAuth" }
@@ -692,6 +707,11 @@ function buildOnboardArgs(payload) {
       "zai-api-key": "--zai-api-key",
       "minimax-api": "--minimax-api-key",
       "minimax-api-lightning": "--minimax-api-key",
+      "xai-api-key": "--xai-api-key",
+      "venice-api-key": "--venice-api-key",
+      "xiaomi-api-key": "--xiaomi-api-key",
+      "cloudflare-ai-gateway-api-key": "--cloudflare-ai-gateway-api-key",
+      "qianfan-api-key": "--qianfan-api-key",
       "synthetic-api-key": "--synthetic-api-key",
       "opencode-zen": "--opencode-zen-api-key",
     };
