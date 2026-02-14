@@ -84,7 +84,10 @@ export function load() {
 
     return data;
   } catch {
-    return emptyStore();
+    const data = emptyStore();
+    save(data);
+    console.log("[store] Initialized new fleet store with Default tenant.");
+    return data;
   }
 }
 

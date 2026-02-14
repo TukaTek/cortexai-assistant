@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "tenants": {
+    "7d483819-8907-4237-897f-8f4e0f22aff1": {
+      "id": "7d483819-8907-4237-897f-8f4e0f22aff1",
+      "name": "Default",
+      "slug": "default",
+      "createdAt": "2026-02-14T22:25:32.195Z",
+      "notes": "",
+      "tailscale": null,
+      "instances": {
+        "6bfc1eb5-5192-4617-9df0-6141a2886372": {
+          "id": "6bfc1eb5-5192-4617-9df0-6141a2886372",
+          "name": "beacon Bot",
+          "createdAt": "2026-02-14T22:27:31.103Z",
+          "railway": {
+            "projectId": "57e0f19f-243d-4a64-ab06-67f507eada5f",
+            "serviceId": "30f7b04a-e4f6-4183-a4b7-86086ebb255e",
+            "environmentId": "ec6376b9-0925-44fd-bbcb-963abd24b962",
+            "volumeId": "d92b4ffa-1e12-415a-802d-294c0e2fdaa2"
+          },
+          "config": {
+            "setupPassword": "test123",
+            "gatewayToken": "8c9e82195373a2c011087a57fffacaf84de307541f2fa38b39a716c38339fe9f"
+          },
+          "tailscale": null,
+          "notes": ""
+        }
+      }
+    }
+  }
+}
