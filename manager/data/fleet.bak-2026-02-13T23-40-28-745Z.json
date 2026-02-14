@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "instances": {
+    "96bdaa28-675f-43a9-b455-c01d0d3ce59e": {
+      "id": "96bdaa28-675f-43a9-b455-c01d0d3ce59e",
+      "name": "Cdub",
+      "createdAt": "2026-02-13T23:21:04.436Z",
+      "railway": {
+        "projectId": "55e0ae8f-0e2f-4094-aaa6-cf66c606d822",
+        "serviceId": "11a00df2-9ace-491e-a2a7-43e58fc6991c",
+        "environmentId": "f734db24-4dbd-45f0-a586-b91881434302",
+        "volumeId": "27f7d2ba-7fb4-484e-b2f9-ef22d0f41b4d"
+      },
+      "config": {
+        "setupPassword": "test123",
+        "gatewayToken": "b0422a7a339468b1c2e12309489bf4ce8a5badf983a3e52439e971f4ad8d2849"
+      },
+      "notes": ""
+    }
+  }
+}

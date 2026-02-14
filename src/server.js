@@ -1324,7 +1324,7 @@ proxy.on("error", (err, _req, _res) => {
 
 // Intercept /openclaw to inject auth token into localStorage before proxying.
 // When _authed=1 is present, skip this handler and let the proxy serve the real UI.
-app.get("/openclaw", async (req, res, next) => {
+app.get("/openclaw", requireSetupAuth, async (req, res, next) => {
   if (req.query._authed === "1") {
     return next();
   }
@@ -1367,7 +1367,7 @@ app.get("/openclaw", async (req, res, next) => {
 </html>`);
 });
 
-app.use(async (req, res) => {
+app.use(requireSetupAuth, async (req, res) => {
   // If not configured, force users to /setup for any non-setup routes.
   if (!isConfigured() && !req.path.startsWith("/setup")) {
     return res.redirect("/setup");
@@ -1417,6 +1417,21 @@ const server = app.listen(PORT, "0.0.0.0", async () => {
 
 server.on("upgrade", async (req, socket, head) => {
   if (!isConfigured()) {
+    socket.destroy();
+    return;
+  }
+
+  // Require Basic Auth for WebSocket upgrades (Control UI uses WS).
+  const authHeader = req.headers.authorization || "";
+  const [scheme, encoded] = authHeader.split(" ");
+  if (scheme !== "Basic" || !encoded) {
+    socket.destroy();
+    return;
+  }
+  const decoded = Buffer.from(encoded, "base64").toString("utf8");
+  const idx = decoded.indexOf(":");
+  const password = idx >= 0 ? decoded.slice(idx + 1) : "";
+  if (password !== SETUP_PASSWORD) {
     socket.destroy();
     return;
   }

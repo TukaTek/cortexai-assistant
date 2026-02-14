@@ -1,0 +1,17 @@
+{
+  "name": "cortexai-fleet-manager",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Fleet manager for CortexAI Assistant Railway instances",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
